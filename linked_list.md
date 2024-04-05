@@ -1,16 +1,16 @@
 # Linked Lists
 
-Lists will always be used in almost all projects because they are amazing at holding related data into one variable. Because lists are so essential programmers have developed the linked list which is a major part of many coding projects because of its many use cases as well as efficiency that out performs normal lists in many ways.
+Lists will always be used in almost all projects because they are amazing at holding related data into one variable. Because lists are so essential, programmers have developed the linked list which is a major part of many coding projects because of its many use cases as well as efficiency that outperforms normal lists in many ways.
 
 Navigating and using a linked list cannot be learned as quickly as normal arrays or lists, but once mastered it will be a skill that you will use the rest of the time you are coding.
 
-Each list is composed of a `head` and a `tail` and each value in the list will either point towards another value or a a null value if it is at the beginning or end of the list which would mean it is the `head` or `tail` value respectively. Each value is a `node` which can point to the previous value and the next value. Here is an image to represent a basic doubly pointed list meaning that each piece of data has a previous value as well as a next value. 
+Each list is composed of a `head` and a `tail` and each value in the list will either point towards another value or a null value if it is at the beginning or end of the list which would mean it is the `head` or `tail` value respectively. Each value is a `node` which can point to the previous value and the next value. Here is an image to represent a basic doubly pointed list meaning that each piece of data has a previous value as well as a next value. 
 
 ![Doubly Linked List](images/doubly_linked_list.png)
 
 ## Performance
 
-Here is a table describing the performance of a normal array compared to a linked list to show why it is a good choice when making programs
+Here is a table describing the performance of a normal array compared to a linked list to show why it is a good choice when making programs.
 
 |Function     |Array Performance|Linked List Performance|
 |-------------|-----------------|-----------------------|
@@ -37,11 +37,11 @@ class Node:
         self.prev = None
 ```
 
-This function sets the default prev and next values as None so that later functions in the linked list class can assign each value correctly.
+This function sets the default `prev` and `next` values as `None` so that later functions in the linked list class can assign each value correctly.
 
 ## Class and Functions for a Linked List
 
-All of the functions that will be used to populate a linked list will be within the `"class LinkedList:"` code. Buckle up because in order to make a linked list have all the functionality a normal list has you need to create some basic functions.
+All the functions that will be used to populate a linked list will be within the `"class LinkedList:"` code. Buckle up because to make a linked list have all the functionality a normal list has you need to create some basic functions.
 
 At the bottom of all these functions I will include a link to a Python file that will have all the functions pasted for easy use.
 
@@ -72,7 +72,6 @@ def insert_head(self, data):
         self.head.prev = new_node # prev point old head to new Node
         self.head = new_node      # set head to new Node
 ```
-
 
 ```python
 def insert_tail(self, data):
@@ -113,7 +112,7 @@ def remove_tail(self):
 
 ### Inner Node Functions
 
-These functions are a little bit harder to follow, but I drawing out inserting the value into the list and assigning where each value needs to go helps me understand the process. Here is an image to help show what is happening when inserting a Node after another Node.
+These functions are a little bit harder to follow, but I have found it to be useful to draw out inserting the new node into the list and assigning where each pointer needs to go because it helps me visualize the process. Here is an image to help show what is happening when inserting a Node within a linked list.
 
 ![Insert After Node](images/insert_after_linked_list.png)
 
@@ -134,7 +133,7 @@ def insert_after(self, data, new_data):
                 new_node = Node(new_data) # create new Node with the new value
                 new_node.prev = current   # prev point new Node to the current Node
                 new_node.next = current.next # next point new Node to the Node that was after the current Node
-                current.next.prev = new_node # prev point the Node was was after the current Node to the new Node
+                current.next.prev = new_node # prev point the Node was after the current Node to the new Node
                 current.next = new_node   # next point the current Node to the new Node
             return    
         current = current.next # if not right value go to next Node in list
@@ -181,7 +180,6 @@ def replace(self, data, new_data):
 
 ### Print List Function
 
-
 ```python
 def print_list(self):
     # start search at the head value
@@ -193,11 +191,11 @@ def print_list(self):
         current = current.next
     print()
 ```
-All of these functions together can make a linked list with a lot of useful qualities. To use all of the functions you will just need to type create a class object for example: `linked_list = LinkedList()` and then call a function by typing `"linked_list.<function>"`.
+All these functions together can make a linked list with a lot of useful qualities. To use all of the functions you will just need to type create a class object for example: `linked_list = LinkedList()` and then call a function by typing `"linked_list.<function>"`.
 
 Here is a Python file with all of the classes and functions: [Python Classes and Functions](python_examples/linked_list_classes_functions.py)
 
-## Example : To do List
+## Example: To do List
 
 This code makes a simple to do list with different tasks that someone has in a day. We can use most of the functions that we defined previously to accomplish the list.
 
@@ -228,7 +226,7 @@ to_do_list.print_list()
 
 ```
 
-## Problem to Solve : Playlist
+## Problem to Solve: Playlist
 
 Create a playlist where you can add, remove, and replace songs. As an extra challenge code an extra function that will print the list of songs in reverse order to get practice with iterating through a linked list.
 
@@ -241,8 +239,8 @@ For all of the test cases have a `playlist.print_list()` to make sure that items
 - Replace a song from your playlist
 - Add a few songs to a playlist and use the reverse function that you created to verify that it printed out in the reverse order that you put it in.
 
+### Solution:
+
 You can check your code with the solution here: [Solution](python_examples/linked_list.py)
 
 [Back to Welcome Page](welcome.md)
-
-

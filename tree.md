@@ -1,8 +1,8 @@
 # Trees
 
-Trees are another way to sort data similarly to linked lists where nodes are pointing to each other, but unlike linked lists nodes can point towards multiple other nodes rather than just one. When trees are used and organized in the correct manner they can have great performance like O(log(n)) which means that it cuts the iterations to find a value in half!
+Trees are another way to sort data similarly to linked lists where nodes are pointing to each other, but unlike linked lists nodes can point towards multiple other nodes rather than just one. When trees are used and organized in the correct manner, they can have great performance like O(log(n)) which means that it cuts the iterations to find a value in half!
 
-Trees are made up of a single root node and many branches. The root node is found at the top of the tree which is the beginning of the tree and the children or branches stem out of it. 
+Trees are made up of a single root node and many branches. The root node is found at the top of the tree which is the beginning of the tree, and the children or branches stem out of it. 
 
 When a node branches out to a node below it the nodes are called parent and child nodes respectively. When the end of a branch is reached it is called a leaf node. The height of a tree is determined by the number of nodes it takes to get to a specific node including the beginning node.
 
@@ -16,17 +16,17 @@ Organizing a tree into a binary search tree is the way that the efficiency of fi
 
 As the word binary denotes, each node in a binary tree can only have two branches coming out of it. The way that we sort the data is if the value that is being added is less than the value on the current node then it will be moved to the left and compared with the next node. Once the value reaches a leaf it will be made as the new leaf. 
 
-If the the value is greater than a value it will be moved to the right and follow the same process.
+If the value is greater than the value it will be moved to the right and follow the same process.
 
 ### Balanced Trees
 
-To be able to achieve the O(log(n)) performance the tree must be balanced meaning that both sides of the tree are close to the same length dividing the data as close to equally in half as possible. When you have overly skewed trees the performance just because O(n) functioning just like a linked list.
+To be able to achieve the O(log(n)) performance the tree must be balanced meaning that both sides of the tree are close to the same length dividing the data as close to equally in half as possible. When you have overly skewed trees the performance just because O(n) functions just like a linked list.
 
 ![Balanced Trees](images/balanced_tree.png)
 
 ## Recursion in Trees
 
-One of the most efficient ways to navigate a tree is to use recursion. If you are not too familiar with recursion I would definitely encourage you to look more into it, but I know you will also learn a few things from the examples that I will be sharing. Be patient with yourself though because it at least took me a while to wrap my head around it.
+One of the most efficient ways to navigate a tree is to use recursion. If you are not too familiar with recursion, I would definitely encourage you to look more into it, but I know you will also learn a few things from the examples that I will be sharing. Be patient with yourself though because it at least took me a while to wrap my head around it.
 
 ### Navigating a Tree
 
@@ -44,7 +44,7 @@ class Node:
 
 Each node will have a value, as well as pointers towards their left and right nodes whether they are None or an actual node.
 
-We also need to initialize the tree by creating the following class
+We also need to initialize the tree by creating the following class.
 
 ```python
 
@@ -56,11 +56,11 @@ class Binary_Search_Tree:
 
 ```
 
-The beginning of a tree object is just to create the self.root definition and assign it to None. It is currently not set to a node from the Node class.
+The beginning of a tree object is just to create the `self.root` definition and assign it to `None`. It is currently not set to a node from the Node class.
 
 ### Inserting Values
 
-To insert values into the tree we can create the following functions within the class
+To insert values into the tree we can create the following functions within the class.
 
 ```python
 
@@ -99,13 +99,13 @@ def _insert(self, data, node):
 
 ```
 
-The code above uses two function to insert a value into the tree. The `insert` is the only one that will be called outside of the class. Python does not identity public and private function calls within a class, but the `_` before the `_insert` function shows that it will only ever be called with the class when the `insert` function is called.
+The code above uses two functions to insert a value into the tree. The `insert` is the only one that will be called outside of the class. Python does not identify public and private function calls within a class, but the `_` before the `_insert` function shows that it will only ever be called with the class when the `insert` function is called.
 
-I also marked two placed where recursion is happening within the function. Recursion at a low level means that the current function calls itself again with different data. In this scenario it allows the function to keep shifting through nodes until it finds the opening for the new node to be inserted. If you notice, each time the `_insert` function is called recursively it passes through `root.left` or `root.right` so that when it runs again we are deeper into the tree until we find the empty spot.
+I also marked two places where recursion is happening within the function. Recursion at a low-level means that the current function calls itself again with different data. In this scenario it allows the function to keep shifting through nodes until it finds the opening for the new node to be inserted. If you notice, each time the `_insert` function is called recursively it passes through `root.left` or `root.right` so that when it runs again we are deeper into the tree until we find the empty spot.
 
 ### Finding Values
 
-The following functions will determine whether a pass through value is within the tree. The function uses a special method similar to the `__init__` special method that defines the initial object definitions. The `__contains__` special method allows code like `print(<item> in <object>)`  to be used outside of the class with the `in` key word.
+The following functions will determine whether a pass-through value is within the tree. The function uses a special method like the `__init__` special method that defines the initial object definitions. The `__contains__` special method allows code like `print(<item> in <object>)` to be used outside of the class with the `in` key word.
 
 ```python
 
@@ -113,7 +113,6 @@ The following functions will determine whether a pass through value is within th
 def __contains__(self, data):
 
     return self._contains(data, self.root)
-
 
 def _contains(self, data, node):
 
@@ -133,7 +132,7 @@ def _contains(self, data, node):
 
 ```
 
-Because the tree is a Binary Search Tree we know how the data is sorted so if the value is less then the node it must be on the left side of the tree etc. that way we do not have to iterate through the whole tree to find the value. We can be certain that if we hit a dead end the value is not in the tree.
+Because the tree is a Binary Search Tree we know how the data is sorted so if the value is less than the node it must be on the left side of the tree etc. that way we do not have to iterate through the whole tree to find the value. We can be certain that if we hit a dead end the value is not in the tree.
 
 ### Navigating a Tree
 
@@ -159,7 +158,7 @@ for item in gen:
 
 ```
 
-Here is an example of a simple yield function. A generator object is created called `gen` and the for loop will print every popped value from the list after it is retrieved then go back into the yield_list function to find the next value.
+Here is an example of a simple yield function. A generator object is created called `gen` and the for loop will print every popped value from the list after it is retrieved then go back into the `yield_list` function to find the next value.
 
 #### Going Forward
 
@@ -202,7 +201,7 @@ def _traverse_backward(self, node):
 
 ```
 
-The function performs the same as the forward traversal but it starts on the right side.
+The function performs the same as the forward traversal, but it starts on the right side.
 
 ### Finding Height of Tree
 
@@ -235,7 +234,7 @@ def _get_height(self, node):
 
 Here is a link to find the classes and functions in one file: [Tree Classes and Functions](python_examples/tree_classes_functions.py)
 
-## Example : Test Tree Functions
+## Example: Test Tree Functions
 
 The following example runs through the functions and shows how to use each of them with the special methods that were listed above.
 
@@ -272,9 +271,9 @@ print(tree.get_height())
 
 ```
 
-## Problem to Solve : Factor Tree
+## Problem to Solve: Factor Tree
 
-Create `_factors` functions that will take any integer and return a tree that is made up of the factors of that number. In order to use the `_factors` function `factors` will need to be called first which I included below. 
+Create `_factors` functions that will take any integer and return a tree that is made up of the factors of that number. To use the `_factors` function `factors` will need to be called first which I included below. 
 
 These functions will exist outside of the `Binary_Search_Tree` and `Node` classes.
 
@@ -292,7 +291,7 @@ def factors(num):
 
 ```
 
-Once the tree is finished have the result be printed in the reverse order.
+Once the tree is finished, have the result be printed in the reverse order.
 
 ### Test Cases:
 
@@ -301,9 +300,10 @@ Once the tree is finished have the result be printed in the reverse order.
 - `factor_tree = factors(30): 5, 3, 2`
 - `factor_tree = factors(7654321): 402859, 19`
 
-### Solution
+### Solution:
 You can check your code with the solution here: [Solution](python_examples/tree.py)
 
 [Back to Welcome Page](welcome.md)
+
 
 

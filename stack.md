@@ -1,8 +1,8 @@
 # Stack
 
-Keeping track of information passed into a program is essential to guarantee that variables are consistent and everything is executed in the correct order. Using a stack is a great way to make sure that code is executed as expected like if there is nested functions in code.
+Keeping track of information passed into a program is essential to guarantee that variables are consistent, and everything is executed in the correct order. Using a stack is a great way to make sure that code is executed as expected like if there are nested functions in code.
 
-A stack in Python is made by making a list and using the `append()` or `pop()` functions to add or remove items from the list. More details on those functions will be described further in a future section. 
+A stack in Python is made by making a list and using the `append()` or `pop()` functions to add or remove items from the list. More details of those functions will be described further in a future section. 
 
 Below is a simple example of a stack. When using the `pop()` function mentioned above the string `'last'` will be removed first.
 
@@ -42,9 +42,9 @@ def fun_C(data):
 
 ```
 
-Above is a list of `fun A-C` definitions that call each other or itself. The stack is used here to make sure that the data passed through each function has be updated to the desired state before being passed into the next function.
+Above is a list of `fun A-C` definitions that call each other or themselves. The stack is used here to make sure that the data passed through each function has been updated to the desired state before being passed into the next function.
 
-If the `fun_A` is called then `fun_A` will be put into a stack like the bucket example above and will not be removed until everything above `fun_A` has been executed. Below shows steps to how the bucket is filled and emptied throughout the process of calling the function (the bottom of the table represents the bottom of the bucket):
+If the `fun_A` is called, then `fun_A` will be put into a stack like the bucket example above and will not be removed until everything above `fun_A` has been executed. Below shows steps to how the bucket is filled and emptied throughout the process of calling the function (the bottom of the table represents the bottom of the bucket):
 
 |START|ADD  |ADD  |ADD  |REM  |REM  |ADD  |REM  |REM\END|
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|
@@ -53,10 +53,9 @@ If the `fun_A` is called then `fun_A` will be put into a stack like the bucket e
 |     |     |fun_B|fun_B|fun_B|     |fun_A|     |     |
 |     |fun_A|fun_A|fun_A|fun_A|fun_A|fun_A|fun_A|     |
 
-
 The table shows the steps that were taken to make sure that each function was executed in the correct order. If you follow the call of functions in the code snippet you should be able to see why I added each function where I did. I skipped a few steps with the 7th column because it was just going to repeat the previous columns since `fun_A` was called again.
 
-Knowing how functions are called and organized is good knowledge to have so that you can better understand how your system runs your code. Although the computer does this on its own I think it's a great way to explain the stack.
+Knowing how functions are called and organized is good knowledge to have so that you can better understand how your system runs your code. Although the computer does this on its own, I think it's a great way to explain the stack.
 
 ## Adding and Removing from a Stack
 
@@ -123,9 +122,9 @@ stack.pop()
 stack.append(6)
 ```
 
-## Example : Balanced Equations
+## Example: Balanced Equations
 
-In the example below, we will write a simple function that will check whether a set of paranthesis is balanced meaning that every "(" has exactly one corresponding ")" using a stack. Study this code and walk through the different scenarios until this makes sense to you.
+In the example below, we will write a simple function that will check whether a set of parentheses is balanced meaning that every "(" has exactly one corresponding ")" using a stack. Study this code and walk through the different scenarios until this makes sense to you.
 
 ```python
 def balanced_equation(equation):
@@ -141,7 +140,6 @@ def balanced_equation(equation):
         else: continue
     return len(stack) == 0
 
-
 print(balanced_equation('()'))                  # True
 print(balanced_equation('((())'))               # False
 print(balanced_equation('(6*(8+7*(28**(3))))')) # True
@@ -149,7 +147,7 @@ print(balanced_equation('(7+8**(6)*(87-21)'))   # False
 
 ```
 
-## Problem to Solve : Text Editor
+## Problem to Solve: Text Editor
 
 Write a program that functions like a text editor where you can add text and undo text depending on whether the user types the word `"add <text>"`, `"undo"`, or `"quit"`.
 
@@ -159,7 +157,7 @@ If the user types `"undo"` then the latest text added should be removed. The tex
 
 If the user types `"quit"` then the program should stop and display the final text that was inputted.
 
-If the user enters something that is not within the keywords above then the program should tell them that it is invalid and to try again.
+If the user enters something that is not within the keywords above, then the program should tell them that it is invalid and to try again.
 
 ### Test Cases:
 
@@ -171,7 +169,7 @@ If the user enters something that is not within the keywords above then the prog
 
 - Type `"quit"` then the program should stop and print the final state of the text.
 
-- If the user starts a new text and the very first thing they type is `"undo"` then the program should tell the user that there is nothing to undo and then should ask for the next prompt.
+- If the user starts a new text and the very first thing, they type is `"undo"` then the program should tell the user that there is nothing to undo and then should ask for the next prompt.
 
 - If the user types in anything other than the 3 keywords then the program should tell him that is an invalid input.
 
@@ -180,8 +178,11 @@ If the user enters something that is not within the keywords above then the prog
 - List slicing
 - The `"startswith()"` function
 
+### Solution:
+
 You can check your code with the solution here: [Solution](python_examples/stack_text_editor.py)
 
 [Back to Welcome Page](welcome.md)
+
 
 
