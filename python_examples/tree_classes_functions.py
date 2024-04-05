@@ -25,15 +25,9 @@ class Binary_Search_Tree:
     # inner function to process the insert of a nonempty tree
     def _insert(self, data, node):
 
-        
-        # have to alter the _insert function
-        # -------------------- SOLUTION ---------------------
+        # If there is a duplicate we basically just ignore it
         if data == node.data:
-            if node.left is None:
-                node.left = Node(data)
-            else:
-                self._insert(data, node.left)
-        # -------------------- SOLUTION END -----------------
+            node = Node(data)
 
         # checks to see whether the data should go to the left or right branch of the current node
         elif data < node.data:
@@ -115,50 +109,8 @@ class Binary_Search_Tree:
             return 0
         else:
 
-            # compare length of left and right branches recursively
+            
             left_height = self._get_height(node.left)
             right_height = self._get_height(node.right)
             return max(left_height, right_height) + 1
 
-# -------------------- SOLUTION ---------------------
-# Lines 29-36 has my edited _insert function as well
-
-def factors(num):
-
-    tree = Binary_Search_Tree()
-    _factors(num, tree)
-    return tree
-
-def _factors(num, tree):
-
-    divisor = 2
-
-    while num % divisor != 0 and divisor < num**(0.5):
-        divisor += 1
-    
-    if divisor > num**(0.5):
-        tree.insert(num)
-        return tree
-    
-    dividend = num // divisor
-    
-    tree.insert(divisor)
-
-    _factors(dividend, tree)
-
-num = 7654321
-factor_tree = factors(num)
-
-print(f'Number is {num}')
-
-print('Factors: ', end='')
-for x in reversed(factor_tree):
-    print(x, end=', ')
-print()
-
-product = 1
-
-for x in factor_tree:
-    product *= x
-
-print(f'Product: {product}')

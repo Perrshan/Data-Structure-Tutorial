@@ -100,6 +100,8 @@ class LinkedList:
             print(current.data, end=', ')
             current = current.prev
 
+# -------------------- SOLUTION ---------------------
+
 # Create a linked list object
 playlist = LinkedList()
 
